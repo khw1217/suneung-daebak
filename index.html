@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>수능 대박</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@stlite/browser@1.12.2/build/stlite.css" />
+  <style>
+    #loading { font-family: sans-serif; text-align: center; margin-top: 30vh; color: #555; }
+  </style>
+</head>
+<body>
+  <!-- 이 페이지는 같은 폴더의 streamlit_app.py(파이썬 코드)를 브라우저 안에서 그대로 실행합니다. -->
+  <div id="root"><p id="loading">🎯 수능 대박 불러오는 중… (처음 접속 시 10~30초 정도 걸려요)</p></div>
+  <script type="module">
+    import { mount } from "https://cdn.jsdelivr.net/npm/@stlite/browser@1.12.2/build/stlite.js";
+    mount({
+      requirements: ["pandas"],
+      entrypoint: "streamlit_app.py",
+      files: {
+        "streamlit_app.py": { url: new URL("streamlit_app.py", window.location.href).href },
+      },
+      streamlitConfig: { "client.toolbarMode": "viewer" },
+    }, document.getElementById("root"));
+  </script>
+</body>
+</html>
